@@ -1,15 +1,24 @@
 // const { Component } = require("react");
 import React, {Component} from 'react';
 
-import Aux from '../../hoc/Auxiliary'
+import Auxiliary from '../../hoc/Auxiliary';
+import Burger from '../../components/Burguer/Burger';
 
 class BurguerBuilder extends Component {
+    state = {
+        ingredients: {
+            salad: 1,
+            bacon: 1,
+            cheese:1,
+            meat:1
+        }
+    }
     render () {
         return(
-            <Aux>
-                <div>Burguer</div>
+            <Auxiliary>
+                <Burger ingredients= {this.state.ingredients}/>
                 <div>Build controls</div>
-            </Aux>
+            </Auxiliary>
         );
     }
 
