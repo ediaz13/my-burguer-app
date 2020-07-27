@@ -2,10 +2,10 @@
 import React, {Component} from 'react';
 
 import Auxiliary from '../../hoc/Auxiliary';
-import Burger from '../../components/Burguer/Burger';
-import BuildControls from '../../components/Burguer/BuildControls/BuildControls';
+import Burger from '../../components/Burger/Burger';
+import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
-import OrderSummary from '../../components/Burguer/OrderSummary/OrderSummary'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 
 const INGREDIENT_PRICES = {
     salad: 1,
@@ -15,7 +15,7 @@ const INGREDIENT_PRICES = {
 }
 
 
-class BurguerBuilder extends Component {
+class BurgerBuilder extends Component {
     state = {
         ingredients: {
             salad: 0,
@@ -119,4 +119,4 @@ class BurguerBuilder extends Component {
 
 }
 
-export default BurguerBuilder;
+export default BurgerBuilder;
