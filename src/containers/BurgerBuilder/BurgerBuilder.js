@@ -34,7 +34,7 @@ class BurgerBuilder extends Component {
             this.setState({ingredients: response.data});
         })
         .catch(error => {
-            this.setState({error: true})
+            this.setState({error: true});
         });
     }
 
@@ -132,7 +132,7 @@ class BurgerBuilder extends Component {
 
         // }
 
-        let orderSumary = null;
+        let orderSummary = null;
         let burger = this.state.error ? <p>Ingredients fucked up! </p> : <Spinner />
         
         if (this.state.ingredients) {
@@ -149,7 +149,7 @@ class BurgerBuilder extends Component {
                 </Auxiliary>
             );
 
-            orderSumary = <OrderSummary 
+            orderSummary = <OrderSummary 
                 ingredients= {this.state.ingredients}
                 price= {this.state.totalPrice.toFixed(2)}
                 purchaseCancelled= {this.purchaseCancelHandler}
@@ -161,7 +161,7 @@ class BurgerBuilder extends Component {
         return(
             <Auxiliary>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
-                    {orderSumary}                    
+                    {orderSummary}                    
                 </Modal>
                 {burger     }                
             </Auxiliary>
