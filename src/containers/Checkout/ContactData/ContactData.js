@@ -64,7 +64,7 @@ class ContactData extends Component {
                 <h4>Enter your contact data son!</h4>
                 {form}                
             </div>
-        )
+        );
     }
 }
 

@@ -5,17 +5,17 @@ import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
-import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import Axios from '../../axios-orders';
 
 const INGREDIENT_PRICES = {
-    salad: 1,
-    cheese: 2,
-    bacon: 2,
-    meat: 3
-}
+    salad: 0.5,
+    cheese: 0.4,
+    meat: 1.3,
+    bacon: 0.7
+};
 
 
 class BurgerBuilder extends Component {
@@ -136,15 +136,15 @@ class BurgerBuilder extends Component {
                         price = {this.state.totalPrice}/>
                 </Auxiliary>
             );
-
-            orderSummary = <OrderSummary 
-                ingredients= {this.state.ingredients}
-                price= {this.state.totalPrice.toFixed(2)}
-                purchaseCancelled= {this.purchaseCancelHandler}
-                purchaseContinued= {this.purchaseContinueHandler} />;
+            orderSummary = <OrderSummary
+                ingredients={this.state.ingredients}
+                price={this.state.totalPrice}
+                purchaseCancelled={this.purchaseCancelHandler}
+                purchaseContinued={this.purchaseContinueHandler} />;
         }
-
-
+        if ( this.state.loading ) {
+            orderSummary = <Spinner />;
+        }
         // {salad: true, meat: false, ...}
         return(
             <Auxiliary>
