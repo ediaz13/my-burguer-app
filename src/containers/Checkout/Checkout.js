@@ -10,6 +10,7 @@ class Checkout extends Component {
         price: 0
     }
 
+    //Queda Will porque sino la caga mal
     componentWillMount () {
         const query = new URLSearchParams(this.props.location.search);
         const ingredients = {};
